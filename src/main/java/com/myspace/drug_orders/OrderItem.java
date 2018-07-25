@@ -8,12 +8,15 @@ public class OrderItem implements java.io.Serializable {
 
 	static final long serialVersionUID = 1L;
 
-	@org.kie.api.definition.type.Label(value = "Drug")
+	@org.kie.api.definition.type.Label("Drug")
 	private com.myspace.drug_orders.Drug drug;
-	@org.kie.api.definition.type.Label(value = "Quantity")
+	@org.kie.api.definition.type.Label("Quantity")
 	private int quantity;
-	@org.kie.api.definition.type.Label(value = "Shipping Address")
+	@org.kie.api.definition.type.Label("Shipping Address")
 	private com.myspace.drug_orders.Address shippingAddress;
+
+	@org.kie.api.definition.type.Label(value = "Shipped")
+	private boolean shipped;
 
 	public OrderItem() {
 	}
@@ -43,11 +46,20 @@ public class OrderItem implements java.io.Serializable {
 		this.shippingAddress = shippingAddress;
 	}
 
+	public boolean isShipped() {
+		return this.shipped;
+	}
+
+	public void setShipped(boolean shipped) {
+		this.shipped = shipped;
+	}
+
 	public OrderItem(com.myspace.drug_orders.Drug drug, int quantity,
-			com.myspace.drug_orders.Address shippingAddress) {
+			com.myspace.drug_orders.Address shippingAddress, boolean shipped) {
 		this.drug = drug;
 		this.quantity = quantity;
 		this.shippingAddress = shippingAddress;
+		this.shipped = shipped;
 	}
 
 }
