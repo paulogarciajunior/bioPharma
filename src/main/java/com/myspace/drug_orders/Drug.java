@@ -6,12 +6,58 @@ package com.myspace.drug_orders;
 
 public class Drug implements java.io.Serializable {
 
-    static final long serialVersionUID = 1L;
+	static final long serialVersionUID = 1L;
 
-    public Drug() {
-    }
+	@org.kie.api.definition.type.Label(value = "SKU Number")
+	private java.lang.String skuNo;
+	@org.kie.api.definition.type.Label(value = "Type")
+	private java.lang.String type;
+	@org.kie.api.definition.type.Label(value = "Description")
+	private java.lang.String description;
+	@org.kie.api.definition.type.Label(value = "Unit Price")
+	private java.math.BigDecimal unitPrice;
 
+	public Drug() {
+	}
 
+	public java.lang.String getSkuNo() {
+		return this.skuNo;
+	}
 
+	public void setSkuNo(java.lang.String skuNo) {
+		this.skuNo = skuNo;
+	}
+
+	public java.lang.String getType() {
+		return this.type;
+	}
+
+	public void setType(java.lang.String type) {
+		this.type = type;
+	}
+
+	public java.lang.String getDescription() {
+		return this.description;
+	}
+
+	public void setDescription(java.lang.String description) {
+		this.description = description;
+	}
+
+	public java.math.BigDecimal getUnitPrice() {
+		return this.unitPrice;
+	}
+
+	public void setUnitPrice(java.math.BigDecimal unitPrice) {
+		this.unitPrice = unitPrice;
+	}
+
+	public Drug(java.lang.String skuNo, java.lang.String type,
+			java.lang.String description, java.math.BigDecimal unitPrice) {
+		this.skuNo = skuNo;
+		this.type = type;
+		this.description = description;
+		this.unitPrice = unitPrice;
+	}
 
 }
