@@ -6,12 +6,58 @@ package com.myspace.drug_orders;
 
 public class Address implements java.io.Serializable {
 
-    static final long serialVersionUID = 1L;
+	static final long serialVersionUID = 1L;
 
-    public Address() {
-    }
+	@org.kie.api.definition.type.Label(value = "Street")
+	private java.lang.String street;
+	@org.kie.api.definition.type.Label(value = "ZIP Code")
+	private java.lang.String zipCode;
+	@org.kie.api.definition.type.Label(value = "State")
+	private java.lang.String state;
+	@org.kie.api.definition.type.Label(value = "Country")
+	private java.lang.String country;
 
+	public Address() {
+	}
 
+	public java.lang.String getStreet() {
+		return this.street;
+	}
 
+	public void setStreet(java.lang.String street) {
+		this.street = street;
+	}
+
+	public java.lang.String getZipCode() {
+		return this.zipCode;
+	}
+
+	public void setZipCode(java.lang.String zipCode) {
+		this.zipCode = zipCode;
+	}
+
+	public java.lang.String getState() {
+		return this.state;
+	}
+
+	public void setState(java.lang.String state) {
+		this.state = state;
+	}
+
+	public java.lang.String getCountry() {
+		return this.country;
+	}
+
+	public void setCountry(java.lang.String country) {
+		this.country = country;
+	}
+
+	public Address(java.lang.String street, java.lang.String zipCode,
+			java.lang.String state, java.lang.String country) {
+		this.street = street;
+		this.zipCode = zipCode;
+		this.state = state;
+		this.country = country;
+	}
 
 }
