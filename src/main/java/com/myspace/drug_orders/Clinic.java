@@ -6,12 +6,35 @@ package com.myspace.drug_orders;
 
 public class Clinic implements java.io.Serializable {
 
-    static final long serialVersionUID = 1L;
+	static final long serialVersionUID = 1L;
 
-    public Clinic() {
-    }
+	@org.kie.api.definition.type.Label(value = "Name")
+	private java.lang.String name;
+	@org.kie.api.definition.type.Label(value = "Address")
+	private com.myspace.drug_orders.Address address;
 
+	public Clinic() {
+	}
 
+	public java.lang.String getName() {
+		return this.name;
+	}
 
+	public void setName(java.lang.String name) {
+		this.name = name;
+	}
+
+	public com.myspace.drug_orders.Address getAddress() {
+		return this.address;
+	}
+
+	public void setAddress(com.myspace.drug_orders.Address address) {
+		this.address = address;
+	}
+
+	public Clinic(java.lang.String name, com.myspace.drug_orders.Address address) {
+		this.name = name;
+		this.address = address;
+	}
 
 }
