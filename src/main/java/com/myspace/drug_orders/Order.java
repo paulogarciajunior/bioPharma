@@ -6,12 +6,49 @@ package com.myspace.drug_orders;
 
 public class Order implements java.io.Serializable {
 
-    static final long serialVersionUID = 1L;
+	static final long serialVersionUID = 1L;
 
-    public Order() {
-    }
+	@org.kie.api.definition.type.Label(value = "Doctor")
+	private com.myspace.drug_orders.Doctor doctor;
+	@org.kie.api.definition.type.Label(value = "Clinic")
+	private com.myspace.drug_orders.Clinic clinic;
+	@org.kie.api.definition.type.Label(value = "Order Items")
+	private java.util.List<com.myspace.drug_orders.OrderItem> orderItems;
 
+	public Order() {
+	}
 
+	public com.myspace.drug_orders.Doctor getDoctor() {
+		return this.doctor;
+	}
 
+	public void setDoctor(com.myspace.drug_orders.Doctor doctor) {
+		this.doctor = doctor;
+	}
+
+	public com.myspace.drug_orders.Clinic getClinic() {
+		return this.clinic;
+	}
+
+	public void setClinic(com.myspace.drug_orders.Clinic clinic) {
+		this.clinic = clinic;
+	}
+
+	public java.util.List<com.myspace.drug_orders.OrderItem> getOrderItems() {
+		return this.orderItems;
+	}
+
+	public void setOrderItems(
+			java.util.List<com.myspace.drug_orders.OrderItem> orderItems) {
+		this.orderItems = orderItems;
+	}
+
+	public Order(com.myspace.drug_orders.Doctor doctor,
+			com.myspace.drug_orders.Clinic clinic,
+			java.util.List<com.myspace.drug_orders.OrderItem> orderItems) {
+		this.doctor = doctor;
+		this.clinic = clinic;
+		this.orderItems = orderItems;
+	}
 
 }
