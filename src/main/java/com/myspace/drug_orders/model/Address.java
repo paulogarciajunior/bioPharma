@@ -12,13 +12,12 @@ public class Address implements java.io.Serializable {
 	private java.lang.String street;
 	@org.kie.api.definition.type.Label("ZIP Code")
 	private java.lang.String zipCode;
+	@org.kie.api.definition.type.Label(value = "City")
+	private java.lang.String city;
 	@org.kie.api.definition.type.Label("State")
 	private java.lang.String state;
 	@org.kie.api.definition.type.Label("Country")
 	private java.lang.String country;
-
-	@org.kie.api.definition.type.Label(value = "City")
-	private java.lang.String city;
 
 	public Address() {
 	}
@@ -39,6 +38,14 @@ public class Address implements java.io.Serializable {
 		this.zipCode = zipCode;
 	}
 
+	public java.lang.String getCity() {
+		return this.city;
+	}
+
+	public void setCity(java.lang.String city) {
+		this.city = city;
+	}
+
 	public java.lang.String getState() {
 		return this.state;
 	}
@@ -55,22 +62,14 @@ public class Address implements java.io.Serializable {
 		this.country = country;
 	}
 
-	public java.lang.String getCity() {
-		return this.city;
-	}
-
-	public void setCity(java.lang.String city) {
-		this.city = city;
-	}
-
 	public Address(java.lang.String street, java.lang.String zipCode,
-			java.lang.String state, java.lang.String country,
-			java.lang.String city) {
+			java.lang.String city, java.lang.String state,
+			java.lang.String country) {
 		this.street = street;
 		this.zipCode = zipCode;
+		this.city = city;
 		this.state = state;
 		this.country = country;
-		this.city = city;
 	}
 
 }
