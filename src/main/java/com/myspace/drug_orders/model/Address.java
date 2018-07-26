@@ -8,14 +8,17 @@ public class Address implements java.io.Serializable {
 
 	static final long serialVersionUID = 1L;
 
-	@org.kie.api.definition.type.Label(value = "Street")
+	@org.kie.api.definition.type.Label("Street")
 	private java.lang.String street;
-	@org.kie.api.definition.type.Label(value = "ZIP Code")
+	@org.kie.api.definition.type.Label("ZIP Code")
 	private java.lang.String zipCode;
-	@org.kie.api.definition.type.Label(value = "State")
+	@org.kie.api.definition.type.Label("State")
 	private java.lang.String state;
-	@org.kie.api.definition.type.Label(value = "Country")
+	@org.kie.api.definition.type.Label("Country")
 	private java.lang.String country;
+
+	@org.kie.api.definition.type.Label(value = "City")
+	private java.lang.String city;
 
 	public Address() {
 	}
@@ -52,12 +55,22 @@ public class Address implements java.io.Serializable {
 		this.country = country;
 	}
 
+	public java.lang.String getCity() {
+		return this.city;
+	}
+
+	public void setCity(java.lang.String city) {
+		this.city = city;
+	}
+
 	public Address(java.lang.String street, java.lang.String zipCode,
-			java.lang.String state, java.lang.String country) {
+			java.lang.String state, java.lang.String country,
+			java.lang.String city) {
 		this.street = street;
 		this.zipCode = zipCode;
 		this.state = state;
 		this.country = country;
+		this.city = city;
 	}
 
 }
