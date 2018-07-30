@@ -144,8 +144,8 @@
         <bpmn2:sourceRef>_818BC686-DD7F-4B32-B0A7-85B24C2EDBDD_htOrderLineItemOutputX</bpmn2:sourceRef>
         <bpmn2:targetRef>orderLineItem</bpmn2:targetRef>
       </bpmn2:dataOutputAssociation>
-      <bpmn2:script><![CDATA[System.out.println("Checking inventory for drug SKU: " + orderLineItem.getDrug().getSkuNo());
-System.out.println("Drug description: " + orderLineItem.getDrug().getDescription());]]></bpmn2:script>
+      <bpmn2:script><![CDATA[System.out.println("Hello World");
+System.out.println("Drug description: ");]]></bpmn2:script>
     </bpmn2:scriptTask>
     <bpmn2:task id="_3861D7D1-5B07-4BB1-B365-C94DA6CAC3B2" drools:selectable="true" drools:taskName="Milestone" color:background-color="#fafad2" color:border-color="#000000" color:color="#000000" name="Drugs Available">
       <bpmn2:extensionElements>
