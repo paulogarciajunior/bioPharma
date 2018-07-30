@@ -5,7 +5,7 @@ package com.myspace.drug_orders.model;
  */
 
 @javax.xml.bind.annotation.XmlRootElement
-public class OrderLineItem implements java.io.Serializable {
+public class Order implements java.io.Serializable {
 
 	static final long serialVersionUID = 1L;
 
@@ -19,7 +19,7 @@ public class OrderLineItem implements java.io.Serializable {
 	@org.kie.api.definition.type.Label("Shipped")
 	private boolean shipped;
 
-	public OrderLineItem() {
+	public Order() {
 	}
 
 	public com.myspace.drug_orders.model.Drug getDrug() {
@@ -55,7 +55,7 @@ public class OrderLineItem implements java.io.Serializable {
 		this.shipped = shipped;
 	}
 
-	public OrderLineItem(com.myspace.drug_orders.model.Drug drug, int quantity,
+	public Order(com.myspace.drug_orders.model.Drug drug, int quantity,
 			com.myspace.drug_orders.model.Address shippingAddress,
 			boolean shipped) {
 		this.drug = drug;
