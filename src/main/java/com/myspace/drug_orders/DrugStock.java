@@ -8,10 +8,13 @@ public class DrugStock implements java.io.Serializable {
 
 	static final long serialVersionUID = 1L;
 
-	@org.kie.api.definition.type.Label(value = "SKU Number")
+	@org.kie.api.definition.type.Label("SKU Number")
 	private java.lang.String skuNo;
-	@org.kie.api.definition.type.Label(value = "Expired")
+	@org.kie.api.definition.type.Label("Expired")
 	private java.lang.Boolean expired;
+
+	@org.kie.api.definition.type.Label(value = "In Stock")
+	private java.lang.Boolean inStock;
 
 	public DrugStock() {
 	}
@@ -32,9 +35,19 @@ public class DrugStock implements java.io.Serializable {
 		this.expired = expired;
 	}
 
-	public DrugStock(java.lang.String skuNo, java.lang.Boolean expired) {
+	public java.lang.Boolean getInStock() {
+		return this.inStock;
+	}
+
+	public void setInStock(java.lang.Boolean inStock) {
+		this.inStock = inStock;
+	}
+
+	public DrugStock(java.lang.String skuNo, java.lang.Boolean expired,
+			java.lang.Boolean inStock) {
 		this.skuNo = skuNo;
 		this.expired = expired;
+		this.inStock = inStock;
 	}
 
 }
