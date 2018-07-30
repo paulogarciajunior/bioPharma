@@ -6,12 +6,35 @@ package com.myspace.drug_orders;
 
 public class DrugStock implements java.io.Serializable {
 
-    static final long serialVersionUID = 1L;
+	static final long serialVersionUID = 1L;
 
-    public DrugStock() {
-    }
+	@org.kie.api.definition.type.Label(value = "SKU Number")
+	private java.lang.String skuNo;
+	@org.kie.api.definition.type.Label(value = "Expired")
+	private java.lang.Boolean expired;
 
+	public DrugStock() {
+	}
 
+	public java.lang.String getSkuNo() {
+		return this.skuNo;
+	}
 
+	public void setSkuNo(java.lang.String skuNo) {
+		this.skuNo = skuNo;
+	}
+
+	public java.lang.Boolean getExpired() {
+		return this.expired;
+	}
+
+	public void setExpired(java.lang.Boolean expired) {
+		this.expired = expired;
+	}
+
+	public DrugStock(java.lang.String skuNo, java.lang.Boolean expired) {
+		this.skuNo = skuNo;
+		this.expired = expired;
+	}
 
 }
