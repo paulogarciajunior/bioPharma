@@ -3,25 +3,34 @@ package com.myspace.drug_orders;
 import org.kie.api.runtime.process.CaseData;
 import com.myspace.drug_orders.model.DrugStock;
 
-rule "Reset stock info"
-when
-    $caseData: CaseData(data["inventoryOrderNo"] != null);
-    
-     
-then
-    System.out.println("Placed order. Resetting case StockInfo");
-    $caseData.remove("stockInfo");
-end
-
-
-
 rule "Drugs not available"
 when
     $caseData: CasaData()
     $drug: Drug() from $caseData.order.drug
-    DrugStock(skuNo == $drug.skuNo, inStock == false )
+    DrugStock(skuNo == $drug.skuNo, inStock == false)
+then
+    System.out.println("Drugs not available.");
+    CaseService caseService = (CaseService) ServiceRegistry.get().service(ServiceRegistry.CASE_SERVICE);
+    caseService.triggerAdHocFragment($caseData.getCaseId(), "Drug Availability & Inventory", "Order new Drugs", null);
+end
+
+rule "Drugs not fresh"
+when
+    $caseData: CasaData()
+    $drug: Drug() from $caseData.order.drug
+    DrugStock(skuNo == $drug.skuNo, expired == true)
 then
     CaseService caseService = (CaseService) ServiceRegistry.get().service(ServiceRegistry.CASE_SERVICE);
-    caseService.triggerAdHocFragment($caseData.getCaseId(), "String stageId", String fragmentName, Object data)
-    
+    caseService.triggerAdHocFragment($caseData.getCaseId(), "Drug Availability & Inventory", "Order new Drugs", null);
+end
+
+rule "Drugs available"
+when
+    $caseData: CasaData()
+    $drug: Drug() from $caseData.order.drug
+    DrugStock(skuNo == $drug.skuNo, inStock == true, expired == false)
+then
+    System.out.println("Drugs not available.");
+    CaseService caseService = (CaseService) ServiceRegistry.get().service(ServiceRegistry.CASE_SERVICE);
+    caseService.triggerAdHocFragment($caseData.getCaseId(), "Drug Availability & Inventory", "Reserver Order", null);
 end
