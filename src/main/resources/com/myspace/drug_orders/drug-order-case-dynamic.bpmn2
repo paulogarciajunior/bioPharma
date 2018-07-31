@@ -133,9 +133,6 @@
             <bpmn2:dataInputRefs>_F8F2404B-8041-43B8-ACB1-DC9B29A02510_htStockInfoInputX</bpmn2:dataInputRefs>
             <bpmn2:dataInputRefs>_F8F2404B-8041-43B8-ACB1-DC9B29A02510_SkippableInputX</bpmn2:dataInputRefs>
           </bpmn2:inputSet>
-          <bpmn2:outputSet id="_n-7_m5SyEeiTVpnbMKEz6g">
-            <bpmn2:dataOutputRefs>_F8F2404B-8041-43B8-ACB1-DC9B29A02510_htInventoryOrderNoOutputX</bpmn2:dataOutputRefs>
-          </bpmn2:outputSet>
         </bpmn2:ioSpecification>
         <bpmn2:dataInputAssociation id="_n-7_nJSyEeiTVpnbMKEz6g">
           <bpmn2:sourceRef>caseFile_order</bpmn2:sourceRef>
@@ -152,10 +149,6 @@
             <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_n-7_oZSyEeiTVpnbMKEz6g">_F8F2404B-8041-43B8-ACB1-DC9B29A02510_SkippableInputX</bpmn2:to>
           </bpmn2:assignment>
         </bpmn2:dataInputAssociation>
-        <bpmn2:dataOutputAssociation id="_n-7_opSyEeiTVpnbMKEz6g">
-          <bpmn2:sourceRef>_F8F2404B-8041-43B8-ACB1-DC9B29A02510_htInventoryOrderNoOutputX</bpmn2:sourceRef>
-          <bpmn2:targetRef>caseFile_inventoryOrderNo</bpmn2:targetRef>
-        </bpmn2:dataOutputAssociation>
       </bpmn2:userTask>
       <bpmn2:task id="_12934D62-9575-4874-88B7-C38996502380" drools:selectable="true" drools:taskName="Milestone" color:background-color="#fafad2" color:border-color="#000000" color:color="#000000" name="Inventory Reserved">
         <bpmn2:extensionElements>
