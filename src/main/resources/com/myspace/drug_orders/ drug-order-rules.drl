@@ -4,12 +4,14 @@ package com.myspace.drug_orders;
 import org.jbpm.casemgmt.api.CaseService;
 import org.jbpm.services.api.service.ServiceRegistry;
 import org.kie.api.runtime.process.CaseData;
+import org.jbpm.casemgmt.api.model.instance.CaseFileInstance;
+
 import com.myspace.drug_orders.model.DrugStock;
 
 
 rule "Drugs not available"
 when
-    $caseData: CaseData()
+    $caseData: CaseFileInstance()
     $drug: Drug() from $caseData.order.drug
     DrugStock(skuNo == $drug.skuNo, inStock == false)
 then
