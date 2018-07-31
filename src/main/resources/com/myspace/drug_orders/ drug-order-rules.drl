@@ -10,7 +10,7 @@ import com.myspace.drug_orders.model.Drug;
 import com.myspace.drug_orders.model.DrugStock;
 import com.myspace.drug_orders.model.Order;
 
-rule "Drl Drugs not available"
+rule "Drugs not in stock"
 when
     $caseData: CaseFileInstance()
     $order: Order() from $caseData.data["order"]
