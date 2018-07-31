@@ -22,11 +22,12 @@ then
     caseService.triggerAdHocFragment($caseData.getCaseId(), "Drug Availability & Inventory", "Order new Drugs", null);
 end
 
-/*
+
 rule "Drugs not fresh"
 when
-    $caseData: CaseData()
-    $drug: Drug() from $caseData.order.drug
+    $caseData: CaseFileInstance()
+    $order: Order() from $caseData.data["order"]
+    $drug: Drug() from $order.drug
     DrugStock(skuNo == $drug.skuNo, expired == true)
 then
     System.out.println("Drugs not fresh!");
@@ -36,12 +37,13 @@ end
 
 rule "Drugs available"
 when
-    $caseData: CaseData()
-    $drug: Drug() from $caseData.order.drug
+    $caseData: CaseFileInstance()
+    $order: Order() from $caseData.data["order"]
+    $drug: Drug() from $order.drug
     DrugStock(skuNo == $drug.skuNo, inStock == true, expired == false)
 then
     System.out.println("Drugs available!");
     CaseService caseService = (CaseService) ServiceRegistry.get().service(ServiceRegistry.CASE_SERVICE);
     caseService.triggerAdHocFragment($caseData.getCaseId(), "Drug Availability & Inventory", "Reserver Order", null);
 end
-*/
+
