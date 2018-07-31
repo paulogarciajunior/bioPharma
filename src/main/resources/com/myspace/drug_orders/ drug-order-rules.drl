@@ -8,7 +8,7 @@ import com.myspace.drug_orders.model.DrugStock;
 
 rule "Drugs not available"
 when
-    $caseData: CasaData()
+    $caseData: CaseData()
     $drug: Drug() from $caseData.order.drug
     DrugStock(skuNo == $drug.skuNo, inStock == false)
 then
@@ -19,7 +19,7 @@ end
 
 rule "Drugs not fresh"
 when
-    $caseData: CasaData()
+    $caseData: CaseData()
     $drug: Drug() from $caseData.order.drug
     DrugStock(skuNo == $drug.skuNo, expired == true)
 then
@@ -29,7 +29,7 @@ end
 
 rule "Drugs available"
 when
-    $caseData: CasaData()
+    $caseData: CaseData()
     $drug: Drug() from $caseData.order.drug
     DrugStock(skuNo == $drug.skuNo, inStock == true, expired == false)
 then
