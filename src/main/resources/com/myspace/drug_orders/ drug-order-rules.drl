@@ -1,2 +1,14 @@
 package com.myspace.drug_orders;
 
+import org.kie.api.runtime.process.CaseData;
+
+
+rule "Reset stock info"
+when
+    $caseData: CaseData(data["stockInfo"] != null);
+    
+     
+then
+    System.out.println("Placed order. Resetting StockInfo");
+    $caseData.remove("stockInfo");
+end
