@@ -34,7 +34,7 @@ when
 then
     System.out.println("Drugs not available!");
     CaseService caseService = (CaseService) ServiceRegistry.get().service(ServiceRegistry.CASE_SERVICE);
-    caseService.triggerAdHocFragment($caseData.getCaseId(), "Drug Availability & Inventory", "Order new Drugs", null);
+    caseService.triggerAdHocFragment($caseData.getCaseId(), "Inventory", "Order new Drugs", null);
 end
 
 
@@ -47,7 +47,7 @@ when
 then
     System.out.println("Drugs not fresh!");
     CaseService caseService = (CaseService) ServiceRegistry.get().service(ServiceRegistry.CASE_SERVICE);
-    caseService.triggerAdHocFragment($caseData.getCaseId(), "Drug Availability & Inventory", "Order new Drugs", null);
+    caseService.triggerAdHocFragment($caseData.getCaseId(), "Inventory", "Order new Drugs", null);
 end
 
 rule "Drugs available"
@@ -59,6 +59,6 @@ when
 then
     System.out.println("Drugs available!");
     CaseService caseService = (CaseService) ServiceRegistry.get().service(ServiceRegistry.CASE_SERVICE);
-    caseService.triggerAdHocFragment($caseData.getCaseId(), "Drug Availability & Inventory", "Reserver Order", null);
+    caseService.triggerAdHocFragment($caseData.getCaseId(), "Inventory", "Reserver Order", null);
 end
 
