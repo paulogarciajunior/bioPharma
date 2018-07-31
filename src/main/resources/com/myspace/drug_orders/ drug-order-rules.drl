@@ -9,6 +9,6 @@ when
     
      
 then
-    System.out.println("Placed order. Resetting StockInfo");
+    System.out.println("Placed order. Resetting case StockInfo");
     $caseData.remove("stockInfo");
 end
