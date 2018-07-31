@@ -10,12 +10,27 @@ import com.myspace.drug_orders.model.Drug;
 import com.myspace.drug_orders.model.DrugStock;
 import com.myspace.drug_orders.model.Order;
 
+rule "Found casedata"
+when
+    $caseData: CaseFileInstance()
+then
+    System.out.println("Found CaseData!!!");
+end
+
+rule "Found order"
+when
+    $caseData: CaseFileInstance()
+    $order: Order() from $caseData.getData("")
+then
+    System.out.println("Found CaseData!!!");
+end
+
 rule "Drugs not in stock"
 when
     $caseData: CaseFileInstance()
-    $order: Order() from $caseData.data["order"]
-    $drug: Drug() from $order.drug
-    DrugStock(skuNo == $drug.skuNo, inStock == false)
+    $order: Order() from $caseData.getData("order")
+    $drug: Drug() from $order.getDrug()
+    DrugStock(skuNo == $drug.skuNo, inStock == false) from $caseData.getData("stockInfo")
 then
     System.out.println("Drugs not available!");
     CaseService caseService = (CaseService) ServiceRegistry.get().service(ServiceRegistry.CASE_SERVICE);
@@ -26,9 +41,9 @@ end
 rule "Drugs not fresh"
 when
     $caseData: CaseFileInstance()
-    $order: Order() from $caseData.data["order"]
-    $drug: Drug() from $order.drug
-    DrugStock(skuNo == $drug.skuNo, expired == true)
+    $order: Order() from $caseData.getData("order")
+    $drug: Drug() from $order.getDrug()
+    DrugStock(skuNo == $drug.skuNo, expired == true) from $caseData.getData("stockInfo")
 then
     System.out.println("Drugs not fresh!");
     CaseService caseService = (CaseService) ServiceRegistry.get().service(ServiceRegistry.CASE_SERVICE);
@@ -38,9 +53,9 @@ end
 rule "Drugs available"
 when
     $caseData: CaseFileInstance()
-    $order: Order() from $caseData.data["order"]
-    $drug: Drug() from $order.drug
-    DrugStock(skuNo == $drug.skuNo, inStock == true, expired == false)
+    $order: Order() from $caseData.getData("order")
+    $drug: Drug() from $order.getDrug()
+    DrugStock(skuNo == $drug.skuNo, inStock == true, expired == false) from $caseData.getData("stockInfo")
 then
     System.out.println("Drugs available!");
     CaseService caseService = (CaseService) ServiceRegistry.get().service(ServiceRegistry.CASE_SERVICE);
