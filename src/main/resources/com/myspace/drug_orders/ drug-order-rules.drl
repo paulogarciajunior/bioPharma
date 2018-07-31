@@ -13,7 +13,7 @@ import com.myspace.drug_orders.model.Order;
 rule "Drugs not available"
 when
     $caseData: CaseFileInstance()
-    $drug: Drug() from $caseData.data["order"]#Order.drug
+    $drug: Drug() from $caseData.data["order"].#Order.drug
     DrugStock(skuNo == $drug.skuNo, inStock == false)
 then
     System.out.println("Drugs not available!");
