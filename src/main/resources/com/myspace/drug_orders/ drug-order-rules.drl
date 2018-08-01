@@ -10,6 +10,16 @@ import com.myspace.drug_orders.model.Drug;
 import com.myspace.drug_orders.model.DrugStock;
 import com.myspace.drug_orders.model.Order;
 
+
+rule "Update case data"
+ruleflow-group "update-case-data"
+when
+    $caseData: CaseFileInstance()
+then
+    System.out.println("Updating Case Data!");
+    update($caseData);
+end
+
 rule "Found casedata"
 when
     $caseData: CaseFileInstance()
