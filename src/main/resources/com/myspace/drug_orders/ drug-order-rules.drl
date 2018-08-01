@@ -25,6 +25,14 @@ then
     System.out.println("Found Order!!!");
 end
 
+rule "Found Stock Info"
+when
+    $caseData: CaseFileInstance()
+    $stockInfo: DrugStock() from $caseData.getData("stockInfo")
+then
+    System.out.println("Found DrugStock info!!!");
+end
+
 rule "Update Stock Info"
 when
     $caseData: CaseFileInstance()
