@@ -20,9 +20,20 @@ end
 rule "Found order"
 when
     $caseData: CaseFileInstance()
-    $order: Order() from $caseData.getData("")
+    $order: Order() from $caseData.getData("order")
 then
-    System.out.println("Found CaseData!!!");
+    System.out.println("Found Order!!!");
+end
+
+rule "Update Stock Info"
+when
+    $caseData: CaseFileInstance()
+    $order: DrugStock() from $caseData.getData("stockInfo")
+then
+    System.out.println("Updating StockInfo. Workaround!!!");
+    modify($case) {
+        add("stockInfo", $stockInfo);
+    }
 end
 
 rule "Drugs not in stock"
