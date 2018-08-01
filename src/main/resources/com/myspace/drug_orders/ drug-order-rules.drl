@@ -47,6 +47,7 @@ when
     $order: Order() from $caseData.getData("order")
     $drug: Drug() from $order.getDrug()
     DrugStock(skuNo == $drug.skuNo, inStock == false) from $caseData.getData("stockInfo")
+    not String(this.notEmpty()) from $caseData.getData("inventoryReservationNo");
 then
     System.out.println("Drugs not available!");
     CaseService caseService = (CaseService) ServiceRegistry.get().service(ServiceRegistry.CASE_SERVICE);
@@ -60,6 +61,7 @@ when
     $order: Order() from $caseData.getData("order")
     $drug: Drug() from $order.getDrug()
     DrugStock(skuNo == $drug.skuNo, expired == true) from $caseData.getData("stockInfo")
+    not String(this.notEmpty()) from $caseData.getData("inventoryReservationNo");
 then
     System.out.println("Drugs not fresh!");
     CaseService caseService = (CaseService) ServiceRegistry.get().service(ServiceRegistry.CASE_SERVICE);
@@ -72,6 +74,7 @@ when
     $order: Order() from $caseData.getData("order")
     $drug: Drug() from $order.getDrug()
     DrugStock(skuNo == $drug.skuNo, inStock == true, expired == false) from $caseData.getData("stockInfo")
+    not String(this.notEmpty()) from $caseData.getData("inventoryReservationNo");
 then
     System.out.println("Drugs available!");
     CaseService caseService = (CaseService) ServiceRegistry.get().service(ServiceRegistry.CASE_SERVICE);
