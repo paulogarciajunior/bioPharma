@@ -33,6 +33,14 @@ then
     System.out.println("Found DrugStock info!!!");
 end
 
+rule "Found Test String"
+when
+    $caseData: CaseFileInstance()
+    $stockInfo: DrugStock() from $caseData.getData("test")
+then
+    System.out.println("Found test string!!!");
+end
+
 rule "Drugs not in stock"
 when
     $caseData: CaseFileInstance()
