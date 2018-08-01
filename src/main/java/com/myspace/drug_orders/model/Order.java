@@ -19,6 +19,12 @@ public class Order implements java.io.Serializable {
 	@org.kie.api.definition.type.Label("Shipped")
 	private boolean shipped;
 
+	@org.kie.api.definition.type.Label(value = "Discount Type")
+	private java.lang.String discountType;
+
+	@org.kie.api.definition.type.Label(value = "Discount Percentage")
+	private int discountPercentage;
+
 	public Order() {
 	}
 
@@ -55,13 +61,32 @@ public class Order implements java.io.Serializable {
 		this.shipped = shipped;
 	}
 
+	public java.lang.String getDiscountType() {
+		return this.discountType;
+	}
+
+	public void setDiscountType(java.lang.String discountType) {
+		this.discountType = discountType;
+	}
+
+	public int getDiscountPercentage() {
+		return this.discountPercentage;
+	}
+
+	public void setDiscountPercentage(int discountPercentage) {
+		this.discountPercentage = discountPercentage;
+	}
+
 	public Order(com.myspace.drug_orders.model.Drug drug, int quantity,
 			com.myspace.drug_orders.model.Address shippingAddress,
-			boolean shipped) {
+			boolean shipped, java.lang.String discountType,
+			int discountPercentage) {
 		this.drug = drug;
 		this.quantity = quantity;
 		this.shippingAddress = shippingAddress;
 		this.shipped = shipped;
+		this.discountType = discountType;
+		this.discountPercentage = discountPercentage;
 	}
 
 }
