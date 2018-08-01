@@ -13,6 +13,7 @@ import com.myspace.drug_orders.model.Order;
 
 rule "Update case data"
 ruleflow-group "update-case-data"
+no-loop
 when
     $caseData: CaseFileInstance()
 then
