@@ -28,10 +28,10 @@ end
 rule "Update Stock Info"
 when
     $caseData: CaseFileInstance()
-    $order: DrugStock() from $caseData.getData("stockInfo")
+    $stockInfo: DrugStock() from $caseData.getData("stockInfo")
 then
     System.out.println("Updating StockInfo. Workaround!!!");
-    modify($case) {
+    modify($caseData) {
         add("stockInfo", $stockInfo);
     }
 end
