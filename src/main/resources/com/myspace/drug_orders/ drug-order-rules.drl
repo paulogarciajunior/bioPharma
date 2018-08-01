@@ -33,17 +33,6 @@ then
     System.out.println("Found DrugStock info!!!");
 end
 
-rule "Update Stock Info"
-when
-    $caseData: CaseFileInstance()
-    $stockInfo: DrugStock() from $caseData.getData("stockInfo")
-then
-    System.out.println("Updating StockInfo. Workaround!!!");
-    modify($caseData) {
-        add("stockInfo", $stockInfo);
-    }
-end
-
 rule "Drugs not in stock"
 when
     $caseData: CaseFileInstance()
