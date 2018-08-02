@@ -2,12 +2,12 @@
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.myspace</groupId>
-  <artifactId>drug-orders</artifactId>
+  <groupId>com.biopharm</groupId>
+  <artifactId>biopharm-order-management-process</artifactId>
   <version>1.0.3</version>
   <packaging>kjar</packaging>
-  <name>drug-orders</name>
-  <description>Drug Orders</description>
+  <name>BioPharm_Order_Management_Process</name>
+  <description>BioPharm Order Management Process for Drugs</description>
   <dependencies>
     <dependency>
       <groupId>com.thoughtworks.xstream</groupId>
