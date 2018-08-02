@@ -79,6 +79,6 @@ when
 then
     System.out.println("Drugs available!");
     CaseService caseService = (CaseService) ServiceRegistry.get().service(ServiceRegistry.CASE_SERVICE);
-    caseService.triggerAdHocFragment($caseData.getCaseId(), "_620B0E74-D6EF-4746-9BCD-E9BF73AFC37D", "Reserve Order", null);
+    caseService.triggerAdHocFragment($caseData.getCaseId(), "_620B0E74-D6EF-4746-9BCD-E9BF73AFC37D", "Reserve Drugs in Inventory", null);
 end
 
