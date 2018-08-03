@@ -45,7 +45,7 @@ end
 rule "Drugs not in stock"
 when
     $caseData: CaseFileInstance()
-    not Boolean(this == true) from $order.getData("inventoryReserved")
+    not Boolean(this == true) from $caseData.getData("inventoryReserved")
     $order: Order() from $caseData.getData("order")
     $drug: Drug() from $order.getDrug()
     DrugStock(skuNo == $drug.skuNo, inStock == false) from $caseData.getData("stockInfo")
@@ -59,7 +59,7 @@ end
 rule "Drugs not fresh"
 when
     $caseData: CaseFileInstance()
-    not Boolean(this == true) from $order.getData("inventoryReserved")
+    not Boolean(this == true) from $caseData.getData("inventoryReserved")
     $order: Order() from $caseData.getData("order")
     $drug: Drug() from $order.getDrug()
     DrugStock(skuNo == $drug.skuNo, expired == true) from $caseData.getData("stockInfo")
@@ -72,7 +72,7 @@ end
 rule "Drugs available"
 when
     $caseData: CaseFileInstance()
-    not Boolean(this == true) from $order.getData("inventoryReserved")
+    not Boolean(this == true) from $caseData.getData("inventoryReserved")
     $order: Order() from $caseData.getData("order")
     $drug: Drug() from $order.getDrug()
     DrugStock(skuNo == $drug.skuNo, inStock == true, expired == false) from $caseData.getData("stockInfo")
