@@ -69,7 +69,8 @@ end
 
 rule "Drugs available"
 when
-    $caseData: CaseFileInstance(data["inventoryReserved"] == false)
+    //$caseData: CaseFileInstance(data["inventoryReserved"] == false)
+    $caseData: CaseFileInstance()
     $order: Order() from $caseData.getData("order")
     $drug: Drug() from $order.getDrug()
     DrugStock(skuNo == $drug.skuNo, inStock == true, expired == false) from $caseData.getData("stockInfo")
