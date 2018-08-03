@@ -17,7 +17,7 @@ public class DrugStock implements java.io.Serializable {
 	@org.kie.api.definition.type.Label("In Stock")
 	private java.lang.Boolean inStock;
 
-	@org.kie.api.definition.type.Label(value = "Inventory Reservation No")
+	@org.kie.api.definition.type.Label("Inventory Reservation Number")
 	private java.lang.String inventoryReservationNo;
 
 	public DrugStock() {
