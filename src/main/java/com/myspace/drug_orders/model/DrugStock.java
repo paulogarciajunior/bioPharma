@@ -17,6 +17,9 @@ public class DrugStock implements java.io.Serializable {
 	@org.kie.api.definition.type.Label("In Stock")
 	private java.lang.Boolean inStock;
 
+	@org.kie.api.definition.type.Label(value = "Inventory Reservation No")
+	private java.lang.String inventoryReservationNo;
+
 	public DrugStock() {
 	}
 
@@ -44,11 +47,21 @@ public class DrugStock implements java.io.Serializable {
 		this.inStock = inStock;
 	}
 
+	public java.lang.String getInventoryReservationNo() {
+		return this.inventoryReservationNo;
+	}
+
+	public void setInventoryReservationNo(
+			java.lang.String inventoryReservationNo) {
+		this.inventoryReservationNo = inventoryReservationNo;
+	}
+
 	public DrugStock(java.lang.String skuNo, java.lang.Boolean expired,
-			java.lang.Boolean inStock) {
+			java.lang.Boolean inStock, java.lang.String inventoryReservationNo) {
 		this.skuNo = skuNo;
 		this.expired = expired;
 		this.inStock = inStock;
+		this.inventoryReservationNo = inventoryReservationNo;
 	}
 
 }
