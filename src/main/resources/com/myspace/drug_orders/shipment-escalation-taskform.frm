@@ -1,0 +1,1 @@
+{"id":"c3b6cd7b-66dc-428b-98ec-4e12988c0782","name":"shipment-escalation-taskform.frm","model":{"taskName":"shipment-escalation","processId":"biopharm.dynamic-order-management","properties":[],"formModelType":"org.kie.workbench.common.forms.jbpm.model.authoring.task.TaskFormModel"},"fields":[],"layoutTemplate":{"version":3,"style":"FLUID","layoutProperties":{},"rows":[]}}
